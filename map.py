@@ -38,6 +38,11 @@ def main():
         event = pygame.event.wait()
         if event.type == pygame.QUIT:
             break
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_PAGEUP and mp.z <= 20:
+                mp.z += 1
+            elif event.key == pygame.K_PAGEDOWN and mp.z > 1:
+                mp.z -= 1
         map_file = create_map(mp)
         screen.blit(pygame.image.load(map_file), (0, 0))
         pygame.display.flip()
